@@ -44,6 +44,24 @@
 
 /* Manual utility classes */
 @layer utilities {
+   .bg-accent-blue {
+    background-color: #3b82f6; /* Blue 500 */
+  }
+  .bg-accent-yellow {
+    background-color: #facc15; /* Yellow 400 */
+  }
+  .text-accent-blue {
+    color: #3b82f6;
+  }
+  .text-accent-yellow {
+    color: #facc15;
+  }
+  .border-accent-blue {
+    border-color: #3b82f6;
+  }
+  .border-accent-yellow {
+    border-color: #facc15;
+  }
   .bg-primary {
     background-color: hsl(var(--color-primary));
   }

@@ -41,11 +41,6 @@ const Contact = () => {
       });
 
       setShowSuccess(true);
-      
-      toast({
-        title: "✅ Message Sent Successfully!",
-        description: "Thank you for contacting us. We'll get back to you within 24 hours.",
-      });
 
       setFormData({
         name: "",

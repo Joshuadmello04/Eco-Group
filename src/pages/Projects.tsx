@@ -103,34 +103,35 @@ const Projects = () => {
                     </div>
                   )}
                   <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 p-8">
-                    <div className="lg:col-span-1 border-l-4 border-accent pl-4">
-                      <div className="text-2xl font-bold text-primary mb-1">
-                        {project.capacity}
-                      </div>
-                      <div className="text-sm text-muted-foreground mb-3">
-                        {project.year || "Ongoing"}
-                      </div>
-                      <div className="text-accent font-semibold text-sm">
-                        {project.client}
-                      </div>
-                    </div>
-                    <div className="lg:col-span-3">
-                      <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
-                      <p className="text-muted-foreground mb-4 leading-relaxed">
-                        {project.description}
-                      </p>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                        <div>
-                          <p className="text-sm font-semibold mb-1">Scope of Work:</p>
-                          <p className="text-sm text-muted-foreground">{project.scope}</p>
-                        </div>
-                        <div>
-                          <p className="text-sm font-semibold mb-1">Key Achievement:</p>
-                          <p className="text-sm text-accent">{project.achievement}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+  <div className="lg:col-span-1 border-l-4 border-accent-blue pl-4">
+    <div className="text-2xl font-bold text-accent-blue mb-1">
+      {project.capacity}
+    </div>
+    <div className="text-sm text-accent-yellow mb-3">
+      {project.year || "Ongoing"}
+    </div>
+    <div className="text-accent font-semibold text-sm">
+      {project.client}
+    </div>
+  </div>
+  <div className="lg:col-span-3">
+    <h3 className="text-2xl font-bold text-accent-blue mb-3">{project.title}</h3>
+    <p className="text-muted-foreground mb-4 leading-relaxed">
+      {project.description}
+    </p>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+      <div>
+        <p className="text-sm font-semibold text-accent-yellow mb-1">Scope of Work:</p>
+        <p className="text-sm text-muted-foreground">{project.scope}</p>
+      </div>
+      <div>
+        <p className="text-sm font-semibold text-accent-yellow mb-1">Key Achievement:</p>
+        <p className="text-sm text-accent-blue">{project.achievement}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
                 </CardContent>
               </Card>
             ))}
