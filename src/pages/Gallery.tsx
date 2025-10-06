@@ -141,37 +141,48 @@ const Gallery = () => {
       </section>
 
       {/* Virtual Tour CTA */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <Card className="border-none shadow-2xl overflow-hidden">
-            <CardContent className="p-0">
-              <div className="bg-gradient-to-r from-primary via-secondary to-primary text-primary-foreground p-12 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Want to See More?</h2>
-                <p className="text-lg mb-8 opacity-95 max-w-2xl mx-auto">
-                  Contact us to schedule a virtual tour of our facilities or visit ongoing projects
-                </p>
-                <div className="flex flex-wrap gap-4 justify-center mb-8">
-                  <div className="flex items-center gap-2 text-lg">
-                    <span>📧</span>
-                    <span>info@ecogroup.co.in</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-lg">
-                    <span>📞</span>
-                    <span>+91 33 2441 1211</span>
-                  </div>
-                </div>
-                <Button 
-                  size="lg" 
-                  className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
-                  asChild
-                >
-                  <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>Get in Touch</Link>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+<section className="py-1">
+  <div className="container mx-auto px-4">
+    <Card className="border-none shadow-2xl overflow-hidden rounded-xl">
+      <CardContent className="p-0">
+        <div className="bg-blue-600 text-black p-12 text-center relative overflow-hidden rounded-xl">
+          {/* Decorative background circles */}
+          <div className="absolute -top-10 -left-10 w-32 h-32 bg-yellow-400 rounded-full opacity-20 pointer-events-none"></div>
+          <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-yellow-300 rounded-full opacity-20 pointer-events-none"></div>
+
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            Want to See More?
+          </h2>
+          <p className="text-lg mb-8 max-w-2xl mx-auto text-white/90">
+            Contact us to schedule a virtual tour of our facilities or visit ongoing projects
+          </p>
+
+          <div className="flex flex-wrap gap-6 justify-center mb-8 text-white">
+            <div className="flex items-center gap-2 text-lg">
+              <span>📧</span>
+              <span>info@ecogroup.co.in</span>
+            </div>
+            <div className="flex items-center gap-2 text-lg">
+              <span>📞</span>
+              <span>+91 33 2441 1211</span>
+            </div>
+          </div>
+
+          <Button
+            size="lg"
+            className="bg-yellow-400 text-black hover:bg-yellow-500 font-semibold transition-all duration-300"
+            asChild
+          >
+            <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
+              Get in Touch
+            </Link>
+          </Button>
         </div>
-      </section>
+      </CardContent>
+    </Card>
+  </div>
+</section>
+
 
       <Footer />
     </div>
