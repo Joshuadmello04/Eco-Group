@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import Navigation from "../components/Navigation";
@@ -13,10 +14,12 @@ import {
   TrendingUp, 
   Users, 
   Award, 
-  Clock 
+  Clock,
+  Quote 
 } from "lucide-react";
 
 const Index = () => {
+  const [isPaused, setIsPaused] = useState(false)
   const stats = [
     { value: "700+", label: "Projects Delivered" },
     { value: "125", label: "Power Plants Served" },
@@ -59,6 +62,69 @@ const Index = () => {
       client: "NTPC Limited",
     },
   ];
+
+  const testimonials = [
+    {
+      title: 'Efficiency & Timeliness',
+      quote:
+        '“Your Planning, Quality of work, Manpower deployment has helped to complete the overhaul within 26 days instead of 30 days which is the shortest period ever since commissioning.”',
+      company: 'Maharashtra State Power Generation Co. Ltd. (MSPGCL)',
+      from: 'Executive Engineer, TM-II, 500MW, CSTPS',
+    },
+    {
+      quote:
+        '“This was achievable due to Excellent Planning, quality of work & Deployment of skilled manpower by M/s Eco Projects.”',
+      company: 'Jindal Stainless Limited',
+      from: 'P.R. Dash, GM(CPP)',
+    },
+    {
+      title: 'Quality & Technical Excellence',
+      quote:
+        '“The team was able to rectify the defects of our machine, which was running with severe vibration since last six years and now it is within the design limit.”',
+      company: 'Odisha Power Generation Corp. Ltd. (OPGC)',
+      from: 'D. D. Behera, Sr. Manager (Mechanical)',
+    },
+    {
+      quote:
+        '“Highly dedicated & experienced team was mobilized by you, which was the key for the completion of overhaul with quality and within scheduled time with good TSI parameters.”',
+      company: 'NTPC Limited (Lara Project)',
+      from: 'Sattaibrat Yadav, AGM(SCU-OH-ST)',
+    },
+    {
+      title: 'Safety & Professionalism',
+      quote:
+        '“Your team\'s commitment to excellence and unwavering focus on safety have not gone unnoticed, and we are truly impressed with the results achieved.”',
+      company: 'NTPC Anta',
+      from: 'Vinay Choudhary, Sr. Manager- MMD',
+    },
+    {
+      quote:
+        '“The dedication of ECO Power Services towards the Quality, Safety, discipline and site management is well appreciated towards successful completion of the overhauling in record period.”',
+      company: 'Toshiba JSW Power Systems Pvt. Ltd.',
+      from: 'Bibhuti Bhusan Behera, DGM / SSD',
+    },
+    {
+      title: 'Resource Management & Capability',
+      quote:
+        '“The skilled manpower by ECO Projects was ideally suited for the work. The Company also deployed sufficient tools and equipment that there was never any shortage on any front.”',
+      company: 'Udupi Power Corporation Ltd. (Adani)',
+      from: 'Chandrahasa. B, Mechanical Maintenance',
+    },
+    {
+      quote:
+        '“This being the first 800MW TG overhauling in India and for TJPS, the dedication of ECO Projects towards the Quality, Safety, discipline and site management is well appreciated...”',
+      company: 'Toshiba JSW Power Systems Pvt. Ltd.',
+      from: 'Hirono Shuji, Chief Marketing Officer',
+    },
+    {
+      quote:
+        '“For your outstanding contribution in successful completion of U#1R2 Boiler Outage.”',
+      company: 'Adani Power',
+      from: 'HOO - MMD',
+    },
+  ]
+
+  const duplicatedTestimonials = [...testimonials, ...testimonials]
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -243,6 +309,61 @@ const Index = () => {
               </Button>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-muted overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <Quote className="w-16 h-16 text-primary mx-auto mb-4" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              TESTIMONIALS 
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              From our valued partners across India's power sector
+            </p>
+          </div>
+
+          <div
+            className="relative"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            <div
+              className="flex gap-8 animate-scroll"
+              style={{
+                animationPlayState: isPaused ? 'paused' : 'running',
+              }}
+            >
+              {duplicatedTestimonials.map((t, index) => (
+                <Card
+                  key={index}
+                  className="flex-shrink-0 w-[calc(33.333vw-2.67rem)] bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200"
+                >
+                  <CardContent className="p-8 flex flex-col justify-between h-full">
+                    
+                    <p className="text-md text-gray-600 italic mb-4 leading-relaxed">
+                      {t.quote}
+                    </p>
+                    <div className="border-t pt-3">
+                      <p className="font-semibold text-blue-700">{t.company}</p>
+                      <p className="text-md text-gray-500">{t.from}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          <style>{`
+            @keyframes scroll {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(calc(-33.333vw * ${testimonials.length} - ${testimonials.length * 32}px)); }
+            }
+            .animate-scroll {
+              animation: scroll 90s linear infinite;
+            }
+          `}</style>
         </div>
       </section>
 

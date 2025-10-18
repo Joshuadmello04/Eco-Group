@@ -1,246 +1,263 @@
+import { useState } from 'react'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 import { Card, CardContent } from '../components/ui/card'
 import heroImage from '@/assets/team-group.jpg'
-import {Quote, Award, ClipboardCheck } from 'lucide-react'
+import { Building2, Factory, Handshake, Quote } from 'lucide-react'
 
 const Clients = () => {
-  // const publicClients = [
-  //   'NTPC Limited',
-  //   'WBPDCL',
-  //   'Aravali Power Corp. Pvt. Ltd.',
-  //   'NTPC SAIL Power Company',
-  //   'Punjab State Electricity Board (PSEB)',
-  //   'Haryana State Electricity Board (HSEB)',
-  //   'Bharat Rail Bijlee Co. Ltd. (BRBCL)'
-  // ]
+  const [isPaused, setIsPaused] = useState(false)
 
-  // const privateClients = [
-  //   'Adani Power Limited',
-  //   'Jindal Power',
-  //   'Essar Power',
-  //   'Reliance Power',
-  //   'China Light & Power (CLP)'
-  // ]
-
-  // const oems = [
-  //   'BHEL (Bharat Heavy Electricals Limited)',
-  //   'Siemens',
-  //   'General Electric (GE)',
-  //   'Toshiba',
-  //   'Alstom'
-  // ]
-
-  const awards = [
-    {
-      name: 'Award for Minimum Number of Safety Deviations During Overhaul',
-      organization: 'NTPC Limited (Lara Project)',
-      document: 'EPS107102025.pdf'
-    },
-    {
-      name: 'Award for Best Safety Practices During Overhaul',
-      organization: 'NTPC Limited (Lara Project)',
-      document: 'EPS107102025.pdf'
-    },
-    {
-      name: 'Appreciation for Achieving 1.0 Lakh Safe Man Hours',
-      organization: 'DB Power Ltd (Fire & Safety Dept)',
-      document: 'EPS407102025.pdf'
-    }
+  const publicClients = [
+    'NTPC Limited',
+    'WBPDCL',
+    'Aravali Power Corp. Pvt. Ltd.',
+    'NTPC SAIL Power Company',
+    'Punjab State Electricity Board (PSEB)',
+    'Haryana State Electricity Board (HSEB)',
+    'Bharat Rail Bijlee Co. Ltd. (BRBCL)',
   ]
 
-  const certificates = [
-    {
-      purpose: 'Capital Overhauling of Unit #1, 15MW at Rajghat Hydroelectric Plant',
-      organization: 'Authorized Signatory',
-      signatory: 'Name not specified'
-    },
-    {
-      purpose: 'Overhauling of Unit #1 (125 MW) during Capital Overhaul',
-      organization: 'Jindal Stainless Limited',
-      signatory: 'P.R. Dash, GM(CPP)'
-    },
-    {
-      purpose: 'Performance Certificate for Overhauling of Unit #1',
-      organization: 'Odisha Power Generation Corp. Ltd. (OPGC)',
-      signatory: 'D. D. Behera, Sr. Manager (Mechanical)'
-    },
-    {
-      purpose: 'Performance Certificate for Capital Overhauling of Stage#01, Unit#03, 250 MW',
-      organization: 'Jindal Power Ltd.',
-      signatory: 'Saikat Nandy, DGM – Turbine Maintenance'
-    },
-    {
-      purpose: 'Certificate for Annual Maintenance Contract for Unit 1 & 2',
-      organization: 'Udupi Power Corp Ltd. (Adani)',
-      signatory: 'Chandrahasa. B, Mechanical Maintenance'
-    },
-    {
-      purpose: 'Certificate for Major Overhauling of Unit #10, 800 MW TG',
-      organization: 'Toshiba JSW',
-      signatory: 'Hirono Shuji, Chief Marketing Officer'
-    },
-    {
-      purpose: 'Certificate for Major Overhauling of Unit #20, 800 MW TG',
-      organization: 'Toshiba JSW',
-      signatory: 'Bibhuti Bhusan Behera, DGM / SSD'
-    }
+  const privateClients = [
+    'Adani Power Limited',
+    'Jindal Power',
+    'Essar Power',
+    'Reliance Power',
+    'China Light & Power (CLP)',
+  ]
+
+  const oems = [
+    'BHEL (Bharat Heavy Electricals Limited)',
+    'Siemens',
+    'General Electric (GE)',
+    'Toshiba',
+    'Alstom',
   ]
 
   const testimonials = [
     {
+      title: 'Efficiency & Timeliness',
       quote:
-        'Your Planning, Quality of work, Manpower deployment has helped to complete the overhaul within 26 days instead of 30 days which is the shortest period ever since commissioning.',
-      author: 'Executive Engineer, TM-II',
+        '“Your Planning, Quality of work, Manpower deployment has helped to complete the overhaul within 26 days instead of 30 days which is the shortest period ever since commissioning.”',
       company: 'Maharashtra State Power Generation Co. Ltd. (MSPGCL)',
-      project: 'Efficiency & Timeliness'
+      from: 'Executive Engineer, TM-II, 500MW, CSTPS',
     },
     {
       quote:
-        'The team was able to rectify the defects of our machine, which was running with severe vibration since last six years and now it is within the design limit.',
-      author: 'D. D. Behera, Sr. Manager (Mechanical)',
+        '“This was achievable due to Excellent Planning, quality of work & Deployment of skilled manpower by M/s Eco Projects.”',
+      company: 'Jindal Stainless Limited',
+      from: 'P.R. Dash, GM(CPP)',
+    },
+    {
+      title: 'Quality & Technical Excellence',
+      quote:
+        '“The team was able to rectify the defects of our machine, which was running with severe vibration since last six years and now it is within the design limit.”',
       company: 'Odisha Power Generation Corp. Ltd. (OPGC)',
-      project: 'Quality & Technical Excellence'
+      from: 'D. D. Behera, Sr. Manager (Mechanical)',
     },
     {
       quote:
-        'Your team’s commitment to excellence and unwavering focus on safety have not gone unnoticed, and we are truly impressed with the results achieved.',
-      author: 'Vinay Choudhary, Sr. Manager - MMD',
+        '“Highly dedicated & experienced team was mobilized by you, which was the key for the completion of overhaul with quality and within scheduled time with good TSI parameters.”',
+      company: 'NTPC Limited (Lara Project)',
+      from: 'Sattaibrat Yadav, AGM(SCU-OH-ST)',
+    },
+    {
+      title: 'Safety & Professionalism',
+      quote:
+        '“Your team\'s commitment to excellence and unwavering focus on safety have not gone unnoticed, and we are truly impressed with the results achieved.”',
       company: 'NTPC Anta',
-      project: 'Safety & Professionalism'
+      from: 'Vinay Choudhary, Sr. Manager- MMD',
     },
     {
       quote:
-        'The skilled manpower by ECO Projects was ideally suited for the work. The Company also deployed sufficient tools and equipment that there was never any shortage on any front.',
-      author: 'Chandrahasa. B, Mechanical Maintenance',
-      company: 'Udupi Power Corporation Ltd. (Adani)',
-      project: 'Resource Management & Capability'
-    },
-    {
-      quote:
-        'This being the first 800MW TG overhauling in India and for TJPS, the dedication of ECO Projects towards Quality, Safety, discipline and site management is well appreciated.',
-      author: 'Hirono Shuji, Chief Marketing Officer',
+        '“The dedication of ECO Power Services towards the Quality, Safety, discipline and site management is well appreciated towards successful completion of the overhauling in record period.”',
       company: 'Toshiba JSW Power Systems Pvt. Ltd.',
-      project: 'Milestone Achievement'
-    }
+      from: 'Bibhuti Bhusan Behera, DGM / SSD',
+    },
+    {
+      title: 'Resource Management & Capability',
+      quote:
+        '“The skilled manpower by ECO Projects was ideally suited for the work. The Company also deployed sufficient tools and equipment that there was never any shortage on any front.”',
+      company: 'Udupi Power Corporation Ltd. (Adani)',
+      from: 'Chandrahasa. B, Mechanical Maintenance',
+    },
+    {
+      quote:
+        '“This being the first 800MW TG overhauling in India and for TJPS, the dedication of ECO Projects towards the Quality, Safety, discipline and site management is well appreciated...”',
+      company: 'Toshiba JSW Power Systems Pvt. Ltd.',
+      from: 'Hirono Shuji, Chief Marketing Officer',
+    },
+    {
+      quote:
+        '“For your outstanding contribution in successful completion of U#1R2 Boiler Outage.”',
+      company: 'Adani Power',
+      from: 'HOO - MMD',
+    },
   ]
 
+  const duplicatedTestimonials = [...testimonials, ...testimonials]
+
   return (
-    <div className='min-h-screen flex flex-col'>
+    <div className="min-h-screen flex flex-col">
       <Navigation />
 
       {/* Hero Section */}
-      <section className='relative py-20 text-primary-foreground'>
-        <div className='absolute inset-0'>
-          <img src={heroImage} alt='Clients' className='w-full h-full object-cover' />
-          <div className='absolute inset-0 bg-black/70'></div>
+      <section className="relative py-20 text-primary-foreground">
+        <div className="absolute inset-0">
+          <img
+            src={heroImage}
+            alt="Clients"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/70"></div>
         </div>
-        <div className='relative container mx-auto px-4 text-center'>
-          <h1 className='text-4xl md:text-5xl font-bold mb-6'>
+        <div className="relative container mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Our Clients & Partners
           </h1>
-          <p className='text-lg md:text-xl max-w-3xl mx-auto opacity-95'>
-            Trusted by India’s Leading Power Generation Companies
+          <p className="text-lg md:text-xl max-w-3xl mx-auto opacity-95">
+            Trusted by India's Leading Power Generation Companies
           </p>
         </div>
       </section>
 
-      {/* Awards Section */}
-      <section className='py-16 md:py-24 bg-muted'>
-        <div className='container mx-auto px-4'>
-          <div className='text-center mb-12'>
-            <Award className='w-16 h-16 text-primary mx-auto mb-4' />
-            <h2 className='text-3xl md:text-4xl font-bold mb-4'>
-              Formal Awards Received
+      {/* Public Sector Clients */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <Building2 className="w-16 h-16 text-primary mx-auto mb-4" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Public Sector Undertakings
             </h2>
-            <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
-              Recognition for excellence in safety, performance, and quality
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Serving India's premier public sector power generation companies
             </p>
           </div>
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto'>
-            {awards.map((a, i) => (
-              <Card key={i} className='hover:shadow-xl transition-all border-l-4 border-l-primary'>
-                <CardContent className='p-6'>
-                  <p className='font-semibold text-lg mb-2'>{a.name}</p>
-                  <p className='text-sm text-muted-foreground mb-1'>
-                    {a.organization}
-                  </p>
-                  <p className='text-xs text-accent italic'>
-                    Reference: {a.document}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Performance Certificates Section */}
-      <section className='py-16 md:py-24'>
-        <div className='container mx-auto px-4'>
-          <div className='text-center mb-12'>
-            <ClipboardCheck className='w-16 h-16 text-accent mx-auto mb-4' />
-            <h2 className='text-3xl md:text-4xl font-bold mb-4'>
-              Performance Certificates
-            </h2>
-            <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
-              Proven track record across multiple major overhauling and AMC projects
-            </p>
-          </div>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto'>
-            {certificates.map((c, i) => (
-              <Card key={i} className='hover:shadow-lg transition-all border-l-4 border-l-accent'>
-                <CardContent className='p-6'>
-                  <p className='font-semibold mb-2'>{c.purpose}</p>
-                  <p className='text-sm text-muted-foreground mb-1'>
-                    {c.organization}
-                  </p>
-                  <p className='text-xs text-accent italic'>{c.signatory}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className='py-16 md:py-24 bg-muted'>
-        <div className='container mx-auto px-4'>
-          <div className='text-center mb-12'>
-            <Quote className='w-16 h-16 text-primary mx-auto mb-4' />
-            <h2 className='text-3xl md:text-4xl font-bold mb-4'>
-              Client Testimonials
-            </h2>
-            <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
-              Voices of appreciation from our valued partners
-            </p>
-          </div>
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
-            {testimonials.map((t, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {publicClients.map((client, index) => (
               <Card
-                key={i}
-                className='hover:shadow-2xl transition-all hover:-translate-y-2 border-t-4 border-t-accent'
+                key={index}
+                className="hover:shadow-xl transition-all hover:scale-105 border-l-4 border-l-primary"
               >
-                <CardContent className='p-8'>
-                  <div className='bg-accent/10 w-12 h-12 rounded-full flex items-center justify-center mb-4'>
-                    <Quote className='w-6 h-6 text-accent' />
-                  </div>
-                  <p className='text-muted-foreground mb-6 leading-relaxed italic text-sm'>
-                    "{t.quote}"
-                  </p>
-                  <div className='border-t pt-4'>
-                    <p className='font-bold text-lg'>{t.author}</p>
-                    <p className='text-sm text-primary font-medium'>
-                      {t.company}
-                    </p>
-                    <p className='text-xs text-muted-foreground mt-1 bg-muted px-2 py-1 rounded inline-block'>
-                      {t.project}
-                    </p>
-                  </div>
+                <CardContent className="p-6 text-center">
+                  <Building2 className="w-8 h-8 text-primary mx-auto mb-3 opacity-50" />
+                  <p className="font-semibold">{client}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Private Sector Clients */}
+      <section className="py-16 md:py-24 bg-muted">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <Factory className="w-16 h-16 text-primary mx-auto mb-4" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Private Sector Companies
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Trusted partner for India's leading private power companies
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {privateClients.map((client, index) => (
+              <Card
+                key={index}
+                className="hover:shadow-xl transition-all hover:scale-105 border-l-4 border-l-accent"
+              >
+                <CardContent className="p-6 text-center">
+                  <Factory className="w-8 h-8 text-accent mx-auto mb-3 opacity-50" />
+                  <p className="font-semibold">{client}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* OEM Partners */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <Handshake className="w-16 h-16 text-primary mx-auto mb-4" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              OEM Technology Partners
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Certified and approved by leading equipment manufacturers
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {oems.map((oem, index) => (
+              <Card
+                key={index}
+                className="hover:shadow-xl transition-all hover:scale-105 border-l-4 border-l-secondary"
+              >
+                <CardContent className="p-6 text-center">
+                  <Handshake className="w-8 h-8 text-secondary mx-auto mb-3 opacity-50" />
+                  <p className="font-semibold">{oem}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Infinite Scroll */}
+      <section className="py-16 md:py-24 bg-muted overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <Quote className="w-16 h-16 text-primary mx-auto mb-4" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              TESTIMONIALS 
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              From our valued partners across India's power sector
+            </p>
+          </div>
+
+          <div
+            className="relative"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            <div
+              className="flex gap-8 animate-scroll"
+              style={{
+                animationPlayState: isPaused ? 'paused' : 'running',
+              }}
+            >
+              {duplicatedTestimonials.map((t, index) => (
+                <Card
+                  key={index}
+                  className="flex-shrink-0 w-[calc(33.333vw-2.67rem)] bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200"
+                >
+                  <CardContent className="p-8 flex flex-col justify-between h-full">
+                    
+                    <p className="text-md text-gray-600 italic mb-4 leading-relaxed">
+                      {t.quote}
+                    </p>
+                    <div className="border-t pt-3">
+                      <p className="font-semibold text-blue-700">{t.company}</p>
+                      <p className="text-md text-gray-500">{t.from}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          <style>{`
+            @keyframes scroll {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(calc(-33.333vw * ${testimonials.length} - ${testimonials.length * 32}px)); }
+            }
+            .animate-scroll {
+              animation: scroll 90s linear infinite;
+            }
+          `}</style>
         </div>
       </section>
 
