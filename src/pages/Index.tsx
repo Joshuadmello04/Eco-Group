@@ -4,6 +4,7 @@ import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import { AnimatedCounter } from "../components/Counter";
 import heroImage from "@/assets/hero-turbine.jpg";
 import teamWork from "@/assets/team-work.jpg";
 import ctaImage from "@/assets/team-turbine.jpg";
@@ -21,11 +22,12 @@ import { LogoSlider } from "../components/LogoSlider";
 
 const Index = () => {
   const [isPaused, setIsPaused] = useState(false)
+  
   const stats = [
-    { value: "700+", label: "Projects Delivered" },
-    { value: "125+", label: "Power Plants Served" },
-    { value: "35+", label: "Years Experience" },
-    { value: "0%", label: "Client Attrition" },
+    { value: 700, label: "Projects Delivered", suffix: "+" },
+    { value: 125, label: "Power Plants Served", suffix: "+" },
+    { value: 35, label: "Years Experience", suffix: "+" },
+    { value: 0, label: "Client Attrition", suffix: "%" },
   ];
 
   const services = [
@@ -159,16 +161,19 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Section - Mobile First */}
+      {/* Stats Section - Mobile First with Animated Counters */}
       <section className="py-8 sm:py-10 md:py-12 bg-muted">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
             {stats.map((stat, index) => (
               <Card key={index} className="text-center border-none shadow-lg">
                 <CardContent className="p-4 sm:p-5 md:p-6">
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2">
-                    {stat.value}
-                  </div>
+                  <AnimatedCounter
+                    end={stat.value}
+                    suffix={stat.suffix}
+                    duration={2500}
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2"
+                  />
                   <div className="text-xs sm:text-sm md:text-base text-muted-foreground">
                     {stat.label}
                   </div>
@@ -396,7 +401,7 @@ const Index = () => {
 
       {/* Our Partners - Mobile First */}
       <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-muted">
-        <div className="container mx-auto px-4 sm:px-6 min-w-full">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-8 sm:mb-10 md:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4 px-4">
               Our Partners
