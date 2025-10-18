@@ -9,7 +9,6 @@ import {
   Settings,
   TrendingUp,
   FileText,
-  Zap,
   Wrench,
   Clock,
   Shield

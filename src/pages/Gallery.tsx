@@ -7,7 +7,6 @@ import heroImage from "@/assets/rotor-assembly.jpg";
 import img1 from "@/assets/turbine-blue.jpg";
 import img2 from "@/assets/team-turbine.jpg";
 import img3 from "@/assets/rotor-assembly.jpg";
-import img4 from "@/assets/team-platform.jpg";
 import img5 from "@/assets/team-group.jpg";
 import img6 from "@/assets/inspection-work.jpg";
 
@@ -45,12 +44,12 @@ const Gallery = () => {
     },
   ];
 
-  const videoCategories = [
-    "Project Time-lapses",
-    "Equipment Testing",
-    "Safety Demonstrations",
-    "Client Testimonials",
-  ];
+  // const videoCategories = [
+  //   "Project Time-lapses",
+  //   "Equipment Testing",
+  //   "Safety Demonstrations",
+  //   "Client Testimonials",
+  // ];
 
   return (
     <div className="min-h-screen flex flex-col">

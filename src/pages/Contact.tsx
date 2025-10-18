@@ -7,7 +7,6 @@ import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
 import { useToast } from "../hooks/use-toast";
 import heroImage from "../assets/team-platform.jpg";
-import ctaImage from "../assets/turbine-blue.jpg";
 import { MapPin, Phone, Mail, Clock, CheckCircle, Loader2 } from "lucide-react";
 import { db } from "../lib/firebase";
 import { collection, addDoc } from "firebase/firestore";
