@@ -39,7 +39,7 @@ const Clients = () => {
       title: 'Efficiency & Timeliness',
       quote:
         '“Your Planning, Quality of work, Manpower deployment has helped to complete the overhaul within 26 days instead of 30 days which is the shortest period ever since commissioning.”',
-      company: 'Maharashtra State Power Generation Co. Ltd. (MSPGCL)',
+      company: 'Maharashtra State Power Generation Co. Ltd. (MAHAGENCO)',
       from: 'Executive Engineer, TM-II, 500MW, CSTPS',
     },
     {
@@ -92,6 +92,36 @@ const Clients = () => {
         '“For your outstanding contribution in successful completion of U#1R2 Boiler Outage.”',
       company: 'Adani Power',
       from: 'HOO - MMD',
+    },
+    {
+      quote:
+        '“Conduct and technical expertise of the service team is found excellent.”',
+      company: 'Odisha Power Generation Corp. Ltd. (OPGC)',
+      from: 'Sr. Manager',
+    },
+    {
+      quote:
+        '“Technical expertise of the service team was found excellent and the team delivered quality job.”',
+      company: 'Jindal Power',
+      from: 'DGM',
+    },
+    {
+      quote:
+        '“We are truly impressed with the results achieved ... utmost confidence in your agency\'s capabilities.”',
+      company: 'NTPC Anta',
+      from: 'Sr. Manager',
+    },
+    {
+      quote:
+        '“I really want to congratulate your entire team on behalf of MSPGCL for this remarkable performance.”',
+      company: 'Maharashtra State Power Generation Co. Ltd. (MAHAGENCO)',
+      from: 'Executive Engineer',
+    },
+    {
+      quote:
+        '“Demonstrated highest level of professionalism in each job of the overhaul.”',
+      company: 'NTPC Limited (Lara Project)',
+      from: 'AGM',
     },
   ]
 

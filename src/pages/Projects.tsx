@@ -98,11 +98,6 @@ const Projects = () => {
 
   const certificates = [
     {
-      purpose: 'Capital Overhauling of Unit #1 (15MW)',
-      org: 'Rajghat Hydroelectric Plant',
-      signatory: 'Name not specified'
-    },
-    {
       purpose: 'Overhauling of Unit #1 (125 MW) during Capital Overhaul',
       org: 'Jindal Stainless Limited',
       signatory: 'P.R. Dash, GM(CPP)'
@@ -132,6 +127,26 @@ const Projects = () => {
       purpose: 'Certificate for Major Overhauling of Unit #20, 800 MW TG',
       org: 'Toshiba JSW',
       signatory: 'Bibhuti Bhusan Behera, DGM / SSD'
+    },
+    {
+      purpose: '500 MW Turbine Capital Overhaul',
+      org: 'NTPC-Rihand STPS',
+      signatory: ''
+    },
+    {
+      purpose: '250 MW Full TG & Valve Overhaul',
+      org: 'OPGC / BHEL',
+      signatory: ''
+    },
+    {
+      purpose: '500 MW Record-Time Overhaul',
+      org: 'MAHAGENCO',
+      signatory: ''
+    },
+    {
+      purpose: 'Steam-Turbine Bearing Work',
+      org: 'NTPC Anta',
+      signatory: ''
     }
   ]
 
@@ -141,33 +156,33 @@ const Projects = () => {
     <div className='min-h-screen flex flex-col'>
       <Navigation />
 
-      {/* Hero Section */}
-      <section className='relative py-20 text-primary-foreground'>
+      {/* Hero Section - Mobile First */}
+      <section className='relative py-12 sm:py-16 md:py-20 text-primary-foreground'>
         <div className='absolute inset-0'>
           <img
             src={heroImage}
             alt='Projects'
-            className='w-full h-full object-cover'
+            className='w-full h-full object-cover object-center'
           />
           <div className='absolute inset-0 bg-black/70'></div>
         </div>
-        <div className='relative container mx-auto px-4 text-center'>
-          <h1 className='text-4xl md:text-5xl font-bold mb-6 text-white'>
+        <div className='relative container mx-auto px-4 sm:px-6 text-center'>
+          <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-white'>
             Our Projects
           </h1>
-          <p className='text-lg md:text-xl max-w-3xl mx-auto opacity-95 text-white'>
+          <p className='text-base sm:text-lg md:text-xl max-w-3xl mx-auto opacity-95 text-white px-4'>
             700+ Successful Projects Across 125+ Power Plants
           </p>
         </div>
       </section>
 
-      {/* Flagship Projects */}
-      <section className='py-16 md:py-24'>
-        <div className='container mx-auto px-4'>
-          <h2 className='text-3xl md:text-4xl font-bold text-center mb-12'>
+      {/* Flagship Projects - Mobile First */}
+      <section className='py-12 sm:py-16 md:py-20 lg:py-24'>
+        <div className='container mx-auto px-4 sm:px-6'>
+          <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10 md:mb-12 px-4'>
             Flagship Projects
           </h2>
-          <div className='space-y-6 max-w-6xl mx-auto'>
+          <div className='space-y-4 sm:space-y-5 md:space-y-6 max-w-6xl mx-auto'>
             {flagshipProjects.map((project, index) => (
               <Card
                 key={index}
@@ -175,7 +190,7 @@ const Projects = () => {
               >
                 <CardContent className='p-0'>
                   {project.image && (
-                    <div className='relative h-64 w-full overflow-hidden'>
+                    <div className='relative h-48 sm:h-56 md:h-64 w-full overflow-hidden'>
                       <img
                         src={project.image}
                         alt={project.title}
@@ -183,39 +198,41 @@ const Projects = () => {
                       />
                     </div>
                   )}
-                  <div className='grid grid-cols-1 lg:grid-cols-4 gap-6 p-8'>
-                    <div className='lg:col-span-1 border-l-4 border-accent-blue pl-4'>
-                      <div className='text-2xl font-bold text-accent-blue mb-1'>
+                  <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 p-4 sm:p-6 md:p-8'>
+                    <div className='lg:col-span-1 border-l-4 border-accent-blue pl-3 sm:pl-4'>
+                      <div className='text-xl sm:text-2xl font-bold text-accent-blue mb-1'>
                         {project.capacity}
                       </div>
-                      <div className='text-sm text-accent-yellow mb-3'>
-                        {project.year}
-                      </div>
-                      <div className='text-accent font-semibold text-sm'>
+                      {project.year && (
+                        <div className='text-xs sm:text-sm text-accent-yellow mb-2 sm:mb-3'>
+                          {project.year}
+                        </div>
+                      )}
+                      <div className='text-accent font-semibold text-xs sm:text-sm'>
                         {project.client}
                       </div>
                     </div>
                     <div className='lg:col-span-3'>
-                      <h3 className='text-2xl font-bold text-accent-blue mb-3'>
+                      <h3 className='text-lg sm:text-xl md:text-2xl font-bold text-accent-blue mb-2 sm:mb-3'>
                         {project.title}
                       </h3>
-                      <p className='text-muted-foreground mb-4 leading-relaxed'>
+                      <p className='text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4 leading-relaxed'>
                         {project.description}
                       </p>
-                      <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-4'>
+                      <div className='grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mt-3 sm:mt-4'>
                         <div>
-                          <p className='text-sm font-semibold text-accent-yellow mb-1'>
+                          <p className='text-xs sm:text-sm font-semibold text-accent-yellow mb-1'>
                             Scope of Work:
                           </p>
-                          <p className='text-sm text-muted-foreground'>
+                          <p className='text-xs sm:text-sm text-muted-foreground'>
                             {project.scope}
                           </p>
                         </div>
                         <div>
-                          <p className='text-sm font-semibold text-accent-yellow mb-1'>
+                          <p className='text-xs sm:text-sm font-semibold text-accent-yellow mb-1'>
                             Key Achievement:
                           </p>
-                          <p className='text-sm text-accent-blue'>
+                          <p className='text-xs sm:text-sm text-accent-blue'>
                             {project.achievement}
                           </p>
                         </div>
@@ -229,14 +246,14 @@ const Projects = () => {
         </div>
       </section>
 
-      {/* Awards Section - Infinite Slider */}
-      <section className='py-16 bg-gradient-to-br from-blue-50 to-gray-100 overflow-hidden'>
-        <div className='container mx-auto px-4 mb-12'>
-          <h2 className='text-3xl md:text-4xl font-bold text-center flex items-center justify-center gap-2 text-gray-900'>
-            <Award className='w-8 h-8 text-yellow-500' />
-            Awards & Recognitions
+      {/* Awards Section - Mobile First Infinite Slider */}
+      <section className='py-12 sm:py-14 md:py-16 bg-gradient-to-br from-blue-50 to-gray-100 overflow-hidden'>
+        <div className='container mx-auto px-4 sm:px-6 mb-8 sm:mb-10 md:mb-12'>
+          <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-center flex flex-col sm:flex-row items-center justify-center gap-2 text-gray-900 px-4'>
+            <Award className='w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-yellow-500' />
+            <span>Awards & Recognitions</span>
           </h2>
-          <p className='text-center text-gray-600 mt-2'>
+          <p className='text-center text-sm sm:text-base text-gray-600 mt-2 px-4'>
             Excellence recognized by industry leaders
           </p>
         </div>
@@ -247,7 +264,7 @@ const Projects = () => {
           onMouseLeave={() => setIsPaused(false)}
         >
           <div
-            className='flex gap-8 animate-scroll'
+            className='flex gap-4 sm:gap-6 md:gap-8 animate-scroll'
             style={{
               animationPlayState: isPaused ? 'paused' : 'running'
             }}
@@ -255,27 +272,27 @@ const Projects = () => {
             {duplicatedAwards.map((award, index) => (
               <div
                 key={index}
-                className='flex-shrink-0 w-[calc(33.333vw-2.67rem)] bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200'
+                className='flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[50vw] lg:w-[calc(33.333vw-2.67rem)] bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200'
               >
-                <div className='p-8'>
-                  <div className='flex items-start gap-4 mb-4'>
-                    <div className='bg-yellow-100 p-3 rounded-full'>
-                      <Award className='w-8 h-8 text-yellow-600' />
+                <div className='p-5 sm:p-6 md:p-8'>
+                  <div className='flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4'>
+                    <div className='bg-yellow-100 p-2 sm:p-3 rounded-full flex-shrink-0'>
+                      <Award className='w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-yellow-600' />
                     </div>
-                    <div className='flex-1'>
-                      <div className='text-sm font-semibold text-blue-600 mb-1'>
+                    <div className='flex-1 min-w-0'>
+                      <div className='text-xs sm:text-sm font-semibold text-blue-600 mb-1'>
                         {award.org}
                       </div>
-                      <h3 className='text-xl font-bold text-gray-900 leading-tight'>
+                      <h3 className='text-base sm:text-lg md:text-xl font-bold text-gray-900 leading-tight'>
                         {award.name}
                       </h3>
                     </div>
                   </div>
-                  <p className='text-gray-600 leading-relaxed mb-4'>
+                  <p className='text-sm sm:text-base text-gray-600 leading-relaxed mb-3 sm:mb-4'>
                     {award.desc}
                   </p>
-                  <div className='flex items-center gap-2 text-sm'>
-                    <ChevronRight className='w-4 h-4 text-yellow-600' />
+                  <div className='flex items-center gap-2 text-xs sm:text-sm'>
+                    <ChevronRight className='w-3 h-3 sm:w-4 sm:h-4 text-yellow-600 flex-shrink-0' />
                     <span className='text-blue-600 font-semibold'>
                       {award.achievement}
                     </span>
@@ -287,35 +304,36 @@ const Projects = () => {
         </div>
       </section>
 
-      {/* Certificates Section */}
-      <section className='py-16 bg-white'>
-        <div className='container mx-auto px-4'>
-          <h2 className='text-3xl md:text-4xl font-bold text-center mb-4 flex items-center justify-center gap-2 text-gray-900'>
-            <FileCheck2 className='w-8 h-8 text-blue-600' />
-            Performance Certificates
+      {/* Certificates Section - Mobile First */}
+      <section className='py-12 sm:py-14 md:py-16 bg-white'>
+        <div className='container mx-auto px-4 sm:px-6'>
+          <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-3 sm:mb-4 flex flex-col sm:flex-row items-center justify-center gap-2 text-gray-900 px-4'>
+            <FileCheck2 className='w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-600' />
+            <span>Performance Certificates</span>
           </h2>
-          <p className='text-center text-gray-600 mb-12'>
+          <p className='text-center text-sm sm:text-base text-gray-600 mb-8 sm:mb-10 md:mb-12 px-4'>
             Certified excellence in power plant operations
           </p>
 
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-7xl mx-auto'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6 max-w-7xl mx-auto'>
             {certificates.map((cert, index) => (
               <div
                 key={index}
                 className='flex flex-col h-full bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-blue-100 overflow-hidden group'
               >
                 {/* Header */}
-                <div className='bg-gradient-to-r from-blue-600 to-blue-500 p-4'>
+                <div className='bg-gradient-to-r from-blue-600 to-blue-500 p-3 sm:p-4'>
                   <div className='flex items-center justify-center gap-2'>
-  <FileCheck2 className='w-6 h-6 text-white' />
-  <h3 className='text-md font-bold text-white text-center'>{cert.org}</h3>
-</div>
-
+                    <FileCheck2 className='w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white flex-shrink-0' />
+                    <h3 className='text-xs sm:text-sm md:text-base font-bold text-white text-center'>
+                      {cert.org}
+                    </h3>
+                  </div>
                 </div>
 
                 {/* Content - vertically centered */}
-                <div className='flex-1 flex flex-col justify-center p-6'>
-                  <p className='text-gray-900 text-xl text-center font-semibold leading-snug'>
+                <div className='flex-1 flex flex-col justify-center p-4 sm:p-5 md:p-6'>
+                  <p className='text-gray-900 text-base sm:text-lg md:text-xl text-center font-semibold leading-snug'>
                     {cert.purpose}
                   </p>
                 </div>
@@ -336,9 +354,37 @@ const Projects = () => {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(calc(-33.333vw * ${awards.length} - ${
-        awards.length * 32
-      }px));
+            transform: translateX(calc(-85vw * ${awards.length} - ${awards.length * 16}px));
+          }
+        }
+        @media (min-width: 640px) {
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(calc(-70vw * ${awards.length} - ${awards.length * 24}px));
+            }
+          }
+        }
+        @media (min-width: 768px) {
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(calc(-50vw * ${awards.length} - ${awards.length * 32}px));
+            }
+          }
+        }
+        @media (min-width: 1024px) {
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(calc(-33.333vw * ${awards.length} - ${awards.length * 32}px));
+            }
           }
         }
 
