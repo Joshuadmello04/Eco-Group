@@ -19,7 +19,7 @@ import {
 const Index = () => {
   const stats = [
     { value: "700+", label: "Projects Delivered" },
-    { value: "100+", label: "Power Plants Served" },
+    { value: "125", label: "Power Plants Served" },
     { value: "35+", label: "Years Experience" },
     { value: "0%", label: "Client Attrition" },
   ];
@@ -81,18 +81,11 @@ const Index = () => {
             <div className="flex flex-wrap gap-4">
               <Button 
                 size="lg" 
-                className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
-                asChild
-              >
-                <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>Get a Quote</Link>
-              </Button>
-              <Button 
-                size="lg" 
                 variant="outline" 
                 className="bg-primary-foreground/10 text-primary-foreground border-primary-foreground hover:bg-primary-foreground hover:text-primary"
                 asChild
               >
-                <Link to="/services" onClick={() => window.scrollTo(0, 0)}>Our Services</Link>
+                <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>Contact Us</Link>
               </Button>
             </div>
           </div>
@@ -229,7 +222,7 @@ const Index = () => {
                   <Wrench className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Multi-Brand Expertise</h3>
-                    <p className="text-muted-foreground">Certified to work with BHEL, Siemens, LMZ, GE, Toshiba and more</p>
+                    <p className="text-muted-foreground">Certified to work with BHEL, Siemens, LMZ, GE, Toshiba, LMW, KWU, Skoda, Ansaldo, Hitachi, Dongfong, Shanghai, Herbin, Mitsubishi</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">

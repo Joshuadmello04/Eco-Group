@@ -32,12 +32,6 @@ const Gallery = () => {
       image: img3
     },
     {
-      title: "Workshop Facilities",
-      description: "State-of-the-art workshop and equipment",
-      count: "80+ photos",
-      image: img4
-    },
-    {
       title: "Project Sites",
       description: "Various power plant locations across India",
       count: "250+ photos",
@@ -113,7 +107,7 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Video Gallery */}
+      {/* Video Gallery
       <section className="py-16 md:py-24 bg-muted">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -138,7 +132,7 @@ const Gallery = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Virtual Tour CTA */}
 <section className="py-1">
@@ -151,11 +145,8 @@ const Gallery = () => {
           <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-yellow-300 rounded-full opacity-20 pointer-events-none"></div>
 
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-            Want to See More?
+            Get in Touch
           </h2>
-          <p className="text-lg mb-8 max-w-2xl mx-auto text-white/90">
-            Contact us to schedule a virtual tour of our facilities or visit ongoing projects
-          </p>
 
           <div className="flex flex-wrap gap-6 justify-center mb-8 text-white">
             <div className="flex items-center gap-2 text-lg">

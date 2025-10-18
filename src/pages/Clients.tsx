@@ -7,35 +7,27 @@ import { Building2, Factory, Handshake, Quote } from 'lucide-react'
 const Clients = () => {
   const publicClients = [
     'NTPC Limited',
-    'NHPC Limited',
-    'Damodar Valley Corporation (DVC)',
+    'WBPDCL',
+    'Aravali Power Corp. Pvt. Ltd.',
     'NTPC SAIL Power Company',
-    'NLC India Limited',
-    'Power Grid Corporation',
-    'State Electricity Boards'
+    'Punjab State Electricity Board (PSEB)',
+    'Haryana State Electricity Board (HSEB)',
+    'Bharat Rail Bijlee Co. Ltd. (BRBCL)'
   ]
 
   const privateClients = [
     'Adani Power Limited',
-    'Tata Power Company',
-    'JSW Energy',
     'Jindal Power',
     'Essar Power',
     'Reliance Power',
-    'GMR Energy',
-    'DB Power'
+    'China Light & Power (CLP)'
   ]
 
   const oems = [
     'BHEL (Bharat Heavy Electricals Limited)',
     'Siemens',
-    'LMZ (Leningradsky Metallichesky Zavod)',
     'General Electric (GE)',
     'Toshiba',
-    'Dongfang Electric',
-    'Shanghai Electric',
-    'Harbin Electric',
-    'KWU (Kraftwerk Union)',
     'Alstom'
   ]
 

@@ -31,7 +31,7 @@ const About = () => {
     {
       year: '2025',
       event: '35+ Years of Excellence',
-      description: 'Serving 100+ power plants with 700+ projects completed'
+      description: 'Serving 125+ power plants with 700+ projects completed'
     }
   ]
 
@@ -105,7 +105,7 @@ const About = () => {
     </p>
 
     <p>
-      With over <span className="font-semibold text-accent-blue">three decades of experience</span>, we have successfully completed <span className="font-semibold text-accent-yellow">700+ projects</span> across <span className="font-semibold text-accent-blue">100+ power plants</span>, serving both public sector undertakings like NTPC, NHPC, and DVC, as well as private giants including Adani Power, Tata Power, and Jindal.
+      With over <span className="font-semibold text-accent-blue">three decades of experience</span>, we have successfully completed <span className="font-semibold text-accent-yellow">700+ projects</span> across <span className="font-semibold text-accent-blue">125+ power plants</span>, serving both public sector undertakings like NTPC as well as private giants including Adani Power, Tata Power, and Jindal Power.
     </p>
 
     <p>

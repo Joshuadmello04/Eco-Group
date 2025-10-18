@@ -24,7 +24,7 @@ const Services = () => {
         'Comprehensive overhauling services for all types and makes of turbines and generators',
       features: [
         'Complete turbine overhaul (HP, IP, LP cylinders)',
-        'Generator rotor and stator servicing',
+        'Generator rotor, stator servicing and testing',
         'Bearing inspection and replacement',
         'Blade inspection and refurbishment',
         'Balancing and alignment services',
@@ -38,7 +38,12 @@ const Services = () => {
         'Toshiba',
         'Dongfong',
         'Shanghai Electric',
-        'Harbin'
+        'Herbin',
+        'LMW',
+        'KWH',
+        'Skoda',
+        'Ansaldo',
+        'Mitsubishi'
       ]
     },
     {
@@ -47,12 +52,7 @@ const Services = () => {
       description:
         'Extend life and improve efficiency of aging power plant equipment',
       features: [
-        'Life extension programs',
-        'Performance upgrades',
-        'Technology modernization',
-        'Obsolete parts replacement',
-        'Efficiency improvement studies',
-        'Cost reduction solutions'
+        'In Collaboration with OEMs we are capable of carrying out renovations & modernization of sets'
       ]
     },
     {
@@ -72,12 +72,6 @@ const Services = () => {
   ]
 
   const specialServices = [
-    {
-      icon: <Zap className='w-8 h-8' />,
-      title: 'Special Projects',
-      description:
-        'Turnkey solutions for complex power plant projects including erection, commissioning, and overseas assignments'
-    },
     {
       icon: <Wrench className='w-8 h-8' />,
       title: 'Emergency Services',
@@ -194,7 +188,7 @@ const Services = () => {
           <h2 className='text-3xl md:text-4xl font-bold text-center mb-12'>
             Additional Services & Capabilities
           </h2>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
             {specialServices.map((service, index) => (
               <Card
                 key={index}
@@ -240,7 +234,7 @@ const Services = () => {
             asChild
           >
             <Link to='/contact' onClick={() => window.scrollTo(0, 0)}>
-              Request a Quote
+              Contact Us
             </Link>
           </Button>
         </div>

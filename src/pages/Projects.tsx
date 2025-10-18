@@ -29,7 +29,7 @@ const Projects = () => {
       image: kudgiImage
     },
     {
-      title: 'NTPC Sipat - High Capacity Unit',
+      title: 'NTPC Sipat - LMZ Technology',
       capacity: '660 MW',
       description:
         'Successfully executed comprehensive overhaul of 660 MW unit at NTPC Sipat, ensuring continued high performance and reliability.',
@@ -39,8 +39,8 @@ const Projects = () => {
       image: sipatImage
     },
     {
-      title: 'Adani Mundra Power Plant',
-      capacity: '4620 MW',
+      title: 'Adani Mundra Power Plant - Dongfong Technology',
+      capacity: '330 & 660 MW',
       description:
         'Executed multi-unit project involving 660 MW & 330 MW TG Set (Dongfeng) overhaul.',
       client: 'Adani Power',
@@ -49,7 +49,7 @@ const Projects = () => {
       image: null
     },
     {
-      title: 'NTPC Vindhyachal',
+      title: 'NTPC Vindhyachal - KWU Technology',
       capacity: '500 MW',
       description:
         'Completed high-capacity 500 MW TG Set (KWU) overhaul with precision and efficiency.',
@@ -59,7 +59,7 @@ const Projects = () => {
       image: null
     },
     {
-      title: 'NTPC Dadri',
+      title: 'NTPC Dadri - KWU Technology',
       capacity: '490 MW',
       description:
         'Successfully executed a major 490 MW TG Set (KWU) overhaul, demonstrating our technical expertise.',
@@ -86,7 +86,7 @@ const Projects = () => {
         <div className='relative container mx-auto px-4 text-center'>
           <h1 className='text-4xl md:text-5xl font-bold mb-6'>Our Projects</h1>
           <p className='text-lg md:text-xl max-w-3xl mx-auto opacity-95'>
-            700+ Successful Projects Across 100+ Power Plants
+            700+ Successful Projects Across 125+ power Plants
           </p>
         </div>
       </section>
@@ -119,7 +119,7 @@ const Projects = () => {
                         {project.capacity}
                       </div>
                       <div className='text-sm text-accent-yellow mb-3'>
-                        {project.year || 'Ongoing'}
+                        {project.year}
                       </div>
                       <div className='text-accent font-semibold text-sm'>
                         {project.client}

@@ -69,14 +69,14 @@ const Contact = () => {
       city: "Eastern Sector",
       address: "400/B/1T, N.S.C. Bose Road, G-02 (B/25), L.N. Colony, Kolkata – 700047",
       phone: "033 - 24305257 / 09903986171",
-      email: "rvkarma..ecopowerservices.in",
+      email: "eps@ecopowerservices.in",
       contactPerson: "Rajendra Vishwakarma",
     },
     {
       city: "Rest of India",
       address: "I - 7, DLF Industrial Area, Phase-1, Faridabad – 121003",
       phone: "0129 - 4018639, 9717294105",
-      email: "eps..ecopowerservices.in",
+      email: "eps@ecopowerservices.in",
       contactPerson: "Helal Akhter Khan",
     },
   ];
@@ -277,7 +277,7 @@ const Contact = () => {
       </section>
 
       {/* Emergency Contact */}
-      <section className="relative py-16 text-primary-foreground">
+      {/* <section className="relative py-16 text-primary-foreground">
         <div className="absolute inset-0">
           <img src={ctaImage} alt="Emergency Support" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/70"></div>
@@ -296,7 +296,7 @@ const Contact = () => {
             Our rapid response team is always ready to assist you
           </p>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </div>
