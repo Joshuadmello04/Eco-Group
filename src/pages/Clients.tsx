@@ -2,34 +2,34 @@ import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 import { Card, CardContent } from '../components/ui/card'
 import heroImage from '@/assets/team-group.jpg'
-import { Building2, Factory, Handshake, Quote, Award, ClipboardCheck } from 'lucide-react'
+import {Quote, Award, ClipboardCheck } from 'lucide-react'
 
 const Clients = () => {
-  const publicClients = [
-    'NTPC Limited',
-    'WBPDCL',
-    'Aravali Power Corp. Pvt. Ltd.',
-    'NTPC SAIL Power Company',
-    'Punjab State Electricity Board (PSEB)',
-    'Haryana State Electricity Board (HSEB)',
-    'Bharat Rail Bijlee Co. Ltd. (BRBCL)'
-  ]
+  // const publicClients = [
+  //   'NTPC Limited',
+  //   'WBPDCL',
+  //   'Aravali Power Corp. Pvt. Ltd.',
+  //   'NTPC SAIL Power Company',
+  //   'Punjab State Electricity Board (PSEB)',
+  //   'Haryana State Electricity Board (HSEB)',
+  //   'Bharat Rail Bijlee Co. Ltd. (BRBCL)'
+  // ]
 
-  const privateClients = [
-    'Adani Power Limited',
-    'Jindal Power',
-    'Essar Power',
-    'Reliance Power',
-    'China Light & Power (CLP)'
-  ]
+  // const privateClients = [
+  //   'Adani Power Limited',
+  //   'Jindal Power',
+  //   'Essar Power',
+  //   'Reliance Power',
+  //   'China Light & Power (CLP)'
+  // ]
 
-  const oems = [
-    'BHEL (Bharat Heavy Electricals Limited)',
-    'Siemens',
-    'General Electric (GE)',
-    'Toshiba',
-    'Alstom'
-  ]
+  // const oems = [
+  //   'BHEL (Bharat Heavy Electricals Limited)',
+  //   'Siemens',
+  //   'General Electric (GE)',
+  //   'Toshiba',
+  //   'Alstom'
+  // ]
 
   const awards = [
     {
