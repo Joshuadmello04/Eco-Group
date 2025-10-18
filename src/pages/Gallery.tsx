@@ -106,32 +106,6 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Video Gallery
-      <section className="py-16 md:py-24 bg-muted">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Video Gallery</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Watch our projects come to life through video documentation
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {videoCategories.map((category, index) => (
-              <Card key={index} className="hover:shadow-2xl transition-all hover:-translate-y-2 cursor-pointer group border-t-4 border-t-accent">
-                <CardContent className="p-8 text-center">
-                  <div className="bg-accent/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
-                    <div className="text-4xl group-hover:scale-110 transition-transform">
-                      🎬
-                    </div>
-                  </div>
-                  <h3 className="font-semibold text-lg">{category}</h3>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section> */}
 
       {/* Virtual Tour CTA */}
 <section className="py-1">

@@ -275,28 +275,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Emergency Contact */}
-      {/* <section className="relative py-16 text-primary-foreground">
-        <div className="absolute inset-0">
-          <img src={ctaImage} alt="Emergency Support" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black/70"></div>
-        </div>
-        <div className="relative container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Emergency Support
-          </h2>
-          <p className="text-lg mb-6 opacity-95">
-            For urgent breakdown or emergency services, please call:
-          </p>
-          <div className="text-3xl font-bold mb-2 text-accent">
-            +91 98300 12345 (24x7)
-          </div>
-          <p className="text-sm opacity-90">
-            Our rapid response team is always ready to assist you
-          </p>
-        </div>
-      </section> */}
-
       <Footer />
     </div>
   );
