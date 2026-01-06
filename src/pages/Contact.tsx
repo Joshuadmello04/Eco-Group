@@ -7,14 +7,21 @@ import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
 import { useToast } from "../hooks/use-toast";
 import heroImage from "../assets/team-platform.jpg";
-import { MapPin, Phone, Mail, Clock, CheckCircle, Loader2 } from "lucide-react";
-import { db } from "../lib/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  CheckCircle,
+  Loader2,
+} from "lucide-react";
 
 const Contact = () => {
   const { toast } = useToast();
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,20 +31,23 @@ const Contact = () => {
     message: "",
   });
 
+  // ✅ FINAL submit handler → Node API → SQL Server
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
-      await addDoc(collection(db, "contactMessages"), {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        company: formData.company,
-        subject: formData.subject,
-        message: formData.message,
-        timestamp: new Date().toISOString(),
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
 
       setShowSuccess(true);
 
@@ -50,9 +60,7 @@ const Contact = () => {
         message: "",
       });
 
-      setTimeout(() => {
-        setShowSuccess(false);
-      }, 3000);
+      setTimeout(() => setShowSuccess(false), 3000);
     } catch (error) {
       toast({
         title: "❌ Error",
@@ -66,14 +74,16 @@ const Contact = () => {
   const offices = [
     {
       city: "Eastern Sector",
-      address: "400/B/1T, N.S.C. Bose Road, G-02 (B/25), L.N. Colony, Kolkata – 700047",
+      address:
+        "400/B/1T, N.S.C. Bose Road, G-02 (B/25), L.N. Colony, Kolkata – 700047",
       phone: "033 - 24305257 / 09903986171",
       email: "eps@ecopowerservices.in",
       contactPerson: "Rajendra Vishwakarma",
     },
     {
       city: "Rest of India",
-      address: "I - 7, DLF Industrial Area, Phase-1, Faridabad – 121003",
+      address:
+        "I - 7, DLF Industrial Area, Phase-1, Faridabad – 121003",
       phone: "0129 - 4018639, 9717294105",
       email: "eps@ecopowerservices.in",
       contactPerson: "Helal Akhter Khan",
@@ -87,11 +97,17 @@ const Contact = () => {
       {/* Hero Section */}
       <section className="relative py-20 text-primary-foreground">
         <div className="absolute inset-0">
-          <img src={heroImage} alt="Contact" className="w-full h-full object-cover" />
+          <img
+            src={heroImage}
+            alt="Contact"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-black/70"></div>
         </div>
         <div className="relative container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            Contact Us
+          </h1>
           <p className="text-lg md:text-xl max-w-3xl mx-auto opacity-95">
             Get in Touch with Our Team
           </p>
@@ -104,95 +120,94 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div className="relative">
-              <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
+              <h2 className="text-3xl font-bold mb-6">
+                Send Us a Message
+              </h2>
+
               <Card className="border-none shadow-2xl border-t-4 border-t-accent">
                 <CardContent className="p-8 relative">
                   {/* Success Overlay */}
                   {showSuccess && (
-                    <div className="absolute inset-0 bg-white/95 backdrop-blur-sm z-10 flex items-center justify-center rounded-lg animate-in fade-in duration-300">
+                    <div className="absolute inset-0 bg-white/95 backdrop-blur-sm z-10 flex items-center justify-center rounded-lg">
                       <div className="text-center">
-                        <div className="mb-4 inline-block animate-in zoom-in duration-500">
-                          <CheckCircle className="w-20 h-20 text-green-500" strokeWidth={2} />
-                        </div>
-                        <h3 className="text-2xl font-bold text-green-600 mb-2">Message Sent!</h3>
-                        <p className="text-muted-foreground">We'll get back to you soon.</p>
+                        <CheckCircle className="w-20 h-20 text-green-500 mx-auto mb-4" />
+                        <h3 className="text-2xl font-bold text-green-600 mb-2">
+                          Message Sent!
+                        </h3>
+                        <p className="text-muted-foreground">
+                          We'll get back to you soon.
+                        </p>
                       </div>
                     </div>
                   )}
-                  
+
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Name *</label>
-                      <Input
-                        required
-                        disabled={isSubmitting}
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Your full name"
-                        className="transition-all duration-200 focus:scale-[1.01]"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Email *</label>
-                      <Input
-                        required
-                        type="email"
-                        disabled={isSubmitting}
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="your.email..company.com"
-                        className="transition-all duration-200 focus:scale-[1.01]"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Phone *</label>
-                      <Input
-                        required
-                        type="tel"
-                        disabled={isSubmitting}
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="+91 XXXXX XXXXX"
-                        className="transition-all duration-200 focus:scale-[1.01]"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Company</label>
-                      <Input
-                        disabled={isSubmitting}
-                        value={formData.company}
-                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        placeholder="Your company name"
-                        className="transition-all duration-200 focus:scale-[1.01]"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Subject *</label>
-                      <Input
-                        required
-                        disabled={isSubmitting}
-                        value={formData.subject}
-                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        placeholder="How can we help you?"
-                        className="transition-all duration-200 focus:scale-[1.01]"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Message *</label>
-                      <Textarea
-                        required
-                        disabled={isSubmitting}
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Tell us more about your requirements..."
-                        rows={5}
-                        className="transition-all duration-200 focus:scale-[1.01]"
-                      />
-                    </div>
-                    <Button 
-                      type="submit" 
+                    <Input
+                      required
+                      placeholder="Your full name"
+                      value={formData.name}
                       disabled={isSubmitting}
-                      className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold transition-all duration-200 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
+                    />
+
+                    <Input
+                      required
+                      type="email"
+                      placeholder="your.email@company.com"
+                      value={formData.email}
+                      disabled={isSubmitting}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                    />
+
+                    <Input
+                      required
+                      type="tel"
+                      placeholder="+91 XXXXX XXXXX"
+                      value={formData.phone}
+                      disabled={isSubmitting}
+                      onChange={(e) =>
+                        setFormData({ ...formData, phone: e.target.value })
+                      }
+                    />
+
+                    <Input
+                      placeholder="Company name"
+                      value={formData.company}
+                      disabled={isSubmitting}
+                      onChange={(e) =>
+                        setFormData({ ...formData, company: e.target.value })
+                      }
+                    />
+
+                    <Input
+                      required
+                      placeholder="Subject"
+                      value={formData.subject}
+                      disabled={isSubmitting}
+                      onChange={(e) =>
+                        setFormData({ ...formData, subject: e.target.value })
+                      }
+                    />
+
+                    <Textarea
+                      required
+                      rows={5}
+                      placeholder="Tell us more about your requirements..."
+                      value={formData.message}
+                      disabled={isSubmitting}
+                      onChange={(e) =>
+                        setFormData({ ...formData, message: e.target.value })
+                      }
+                    />
+
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full"
                       size="lg"
                     >
                       {isSubmitting ? (
@@ -201,7 +216,7 @@ const Contact = () => {
                           Sending...
                         </>
                       ) : (
-                        'Send Message'
+                        "Send Message"
                       )}
                     </Button>
                   </form>
@@ -209,64 +224,49 @@ const Contact = () => {
               </Card>
             </div>
 
-            {/* Contact Information */}
+            {/* Office Info */}
             <div>
-              <h2 className="text-3xl font-bold mb-6">Our Offices</h2>
+              <h2 className="text-3xl font-bold mb-6">
+                Our Offices
+              </h2>
+
               <div className="space-y-6">
                 {offices.map((office, index) => (
-                  <Card key={index} className="border-none shadow-2xl border-l-4 border-l-primary hover:shadow-xl transition-shadow">
-                    <CardContent className="p-8">
-                      <h3 className="text-xl font-bold mb-4 text-primary">{office.city}</h3>
-                      <div className="space-y-4">
-                        <div className="flex items-start space-x-3">
-                          <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                          <p className="text-muted-foreground">{office.address}</p>
-                        </div>
-                        <div className="flex items-center space-x-3">
-                          <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                          <a href={`tel:${office.phone}`} className="text-muted-foreground hover:text-primary">
-                            {office.phone}
-                          </a>
-                        </div>
-                        <div className="flex items-center space-x-3">
-                          <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                          <a href={`mailto:${office.email}`} className="text-muted-foreground hover:text-primary">
-                            {office.email}
-                          </a>
-                        </div>
-                        <div className="pt-3 border-t">
-                          <p className="text-sm font-medium">Contact Person:</p>
-                          <p className="text-sm text-muted-foreground">{office.contactPerson}</p>
-                        </div>
-                      </div>
+                  <Card key={index} className="shadow-xl">
+                    <CardContent className="p-8 space-y-3">
+                      <h3 className="text-xl font-bold">
+                        {office.city}
+                      </h3>
+                      <p className="flex gap-2">
+                        <MapPin /> {office.address}
+                      </p>
+                      <p className="flex gap-2">
+                        <Phone /> {office.phone}
+                      </p>
+                      <p className="flex gap-2">
+                        <Mail /> {office.email}
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        Contact Person: {office.contactPerson}
+                      </p>
                     </CardContent>
                   </Card>
                 ))}
 
-                {/* Business Hours */}
-                <Card className="border-none shadow-xl bg-muted">
+                <Card className="bg-muted shadow-xl">
                   <CardContent className="p-8">
-                    <div className="flex items-center space-x-3 mb-4">
-                      <Clock className="w-6 h-6 text-primary" />
-                      <h3 className="text-xl font-bold">Business Hours</h3>
+                    <div className="flex items-center gap-2 mb-4">
+                      <Clock />
+                      <h3 className="text-xl font-bold">
+                        Business Hours
+                      </h3>
                     </div>
-                    <div className="space-y-2 text-sm">
-                      <div className="flex justify-between">
-                        <span>Monday - Friday:</span>
-                        <span className="font-medium">9:00 AM - 6:00 PM</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Saturday:</span>
-                        <span className="font-medium">9:00 AM - 2:00 PM</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Sunday:</span>
-                        <span className="font-medium">Closed</span>
-                      </div>
-                      <div className="pt-3 mt-3 border-t">
-                        <p className="text-accent font-semibold">24x7 Emergency Support Available</p>
-                      </div>
-                    </div>
+                    <p>Mon–Fri: 9:00 AM – 6:00 PM</p>
+                    <p>Saturday: 9:00 AM – 2:00 PM</p>
+                    <p>Sunday: Closed</p>
+                    <p className="mt-3 font-semibold text-accent">
+                      24x7 Emergency Support Available
+                    </p>
                   </CardContent>
                 </Card>
               </div>
