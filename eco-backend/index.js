@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { poolPromise } from "./db.js";
+import testimonialRoutes from "./routes/testimonials.js";
 
 dotenv.config();
 
@@ -9,6 +10,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use("/api/testimonials", testimonialRoutes);
 
 app.post("/api/contact", async (req, res) => {
   try {

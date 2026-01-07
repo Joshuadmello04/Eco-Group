@@ -235,61 +235,90 @@ const Clients = () => {
         </div>
       </section>
 
-      {/* Testimonials Infinite Scroll */}
-      <section className="py-16 md:py-24 bg-muted overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <Quote className="w-16 h-16 text-primary mx-auto mb-4" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              TESTIMONIALS 
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From our valued partners across India's power sector
-            </p>
-          </div>
+    {/* Testimonials Carousel */}
+<section className="py-16 md:py-24 bg-muted overflow-hidden">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-12">
+      <Quote className="w-16 h-16 text-primary mx-auto mb-4" />
+      <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        TESTIMONIALS
+      </h2>
+      <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        From our valued partners across India's power sector
+      </p>
+    </div>
 
+    {/* VIEWPORT */}
+    <div
+      className="overflow-hidden"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* TRACK */}
+      <div
+        className="testimonial-track"
+        style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
+      >
+        {duplicatedTestimonials.map((t, index) => (
           <div
-            className="relative"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
+            key={index}
+            className="testimonial-slide"
           >
-            <div
-              className="flex gap-8 animate-scroll"
-              style={{
-                animationPlayState: isPaused ? 'paused' : 'running',
-              }}
-            >
-              {duplicatedTestimonials.map((t, index) => (
-                <Card
-                  key={index}
-                  className="flex-shrink-0 w-[calc(33.333vw-2.67rem)] bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200"
-                >
-                  <CardContent className="p-8 flex flex-col justify-between h-full">
-                    
-                    <p className="text-md text-gray-600 italic mb-4 leading-relaxed">
-                      {t.quote}
-                    </p>
-                    <div className="border-t pt-3">
-                      <p className="font-semibold text-blue-700">{t.company}</p>
-                      <p className="text-md text-gray-500">{t.from}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+            <Card className="bg-white rounded-xl shadow-lg border border-gray-200 h-full">
+              <CardContent className="p-8 flex flex-col justify-between h-full">
+                <p className="italic text-gray-600 mb-4 leading-relaxed">
+                  {t.quote}
+                </p>
+                <div className="border-t pt-3">
+                  <p className="font-semibold text-blue-700">{t.company}</p>
+                  <p className="text-sm text-gray-500">{t.from}</p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
+        ))}
+      </div>
+    </div>
 
-          <style>{`
-            @keyframes scroll {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(calc(-33.333vw * ${testimonials.length} - ${testimonials.length * 32}px)); }
-            }
-            .animate-scroll {
-              animation: scroll 90s linear infinite;
-            }
-          `}</style>
-        </div>
-      </section>
+    {/* CSS */}
+    <style>{`
+      .testimonial-track {
+        display: flex;
+        gap: 1.5rem;
+        width: max-content;
+        animation: testimonial-scroll 80s linear infinite;
+      }
+
+      .testimonial-slide {
+        flex-shrink: 0;
+        width: 85vw;
+      }
+
+      @media (min-width: 640px) {
+        .testimonial-slide {
+          width: 65vw;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .testimonial-slide {
+          width: 420px;
+        }
+      }
+
+      @keyframes testimonial-scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+    `}</style>
+  </div>
+</section>
+
+
 
       <Footer />
     </div>
