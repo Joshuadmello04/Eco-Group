@@ -11,7 +11,8 @@ import Clients from "./pages/Clients";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-
+import AdminGallery from "./pages/AdminGallery";
+import AdminLogin from "./pages/AdminLogin";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -28,6 +29,8 @@ const App = () => (
           <Route path="/clients" element={<Clients />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/gallery" element={<AdminGallery />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
