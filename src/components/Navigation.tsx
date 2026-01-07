@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ecoLogo from "@/assets/eco-logo.png";
+import { Shield } from "lucide-react"
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,14 +48,25 @@ const Navigation = () => {
             ))}
           </div>
 
-          <Button
-            variant="default"
-            size="sm"
-            className="hidden lg:flex bg-accent text-accent-foreground hover:bg-accent/90"
-            asChild
-          >
-            <Link to="/contact">Get Quote</Link>
-          </Button>
+          <div className="hidden lg:flex items-center gap-2">
+  <Button
+    variant="default"
+    size="sm"
+    className="bg-accent text-accent-foreground hover:bg-accent/90"
+    asChild
+  >
+    <Link to="/contact">Get Quote</Link>
+  </Button>
+
+  {/* ADMIN ICON */}
+  <Link
+    to="/admin/login"
+    title="Admin Login"
+    className="p-2 rounded-full hover:bg-secondary transition"
+  >
+    <Shield size={18} />
+  </Link>
+</div>
 
           {/* Mobile Menu Button */}
           <button
